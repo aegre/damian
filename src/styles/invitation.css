@@ -6,10 +6,11 @@
 
 body {
   font-family: 'Amatic SC', cursive;
-  background: #e6e7e0 url('/background.webp') center center / cover no-repeat fixed;
+  background: #e6e7e0 url('/background2.webp') center center / cover no-repeat fixed;
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
+  animation: background-enter 3s ease-out forwards;
 }
 
 
@@ -347,6 +348,39 @@ body {
   }
 }
 
+@keyframes scaleInFlipped {
+  from {
+    opacity: 0;
+    transform: scaleX(-1) scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleX(-1) scale(1);
+  }
+}
+
+
+@keyframes background-enter {
+  0% {
+    background-size: cover;
+    background-position: 50% 30%;
+    opacity: 0.3;
+  }
+
+  50% {
+    background-size: cover;
+    background-position: 50% 40%;
+    opacity: 0.7;
+  }
+
+  100% {
+    background-size: cover;
+    background-position: center center;
+    opacity: 1;
+  }
+}
+
 /* Animation Classes */
 .animate-text-fade-in {
   animation: fadeIn 1s ease-out forwards;
@@ -368,6 +402,13 @@ body {
   animation-play-state: paused;
   opacity: 0;
 }
+
+.animate-on-scroll-flipped {
+  animation: scaleInFlipped 0.8s ease-out forwards;
+  animation-play-state: paused;
+  opacity: 0;
+}
+
 
 /* Scroll-triggered animations */
 .animate-on-scroll.animate-delay-1 {
@@ -418,6 +459,40 @@ body {
   opacity: 0.9;
 }
 
+/* Top Right Caterpillar */
+.top-right-caterpillar {
+  position: absolute;
+  top: -40px;
+  right: 20px;
+  width: 80px;
+  height: auto;
+  opacity: 0.8;
+  transition: transform 0.3s ease;
+  z-index: 5;
+}
+
+.top-right-caterpillar:hover {
+  transform: scale(1.1);
+}
+
+/* Top Left Snail */
+.top-left-snail {
+  position: absolute;
+  top: -40px;
+  left: 20px;
+  width: 80px;
+  height: auto;
+  opacity: 0.8;
+  transform: scaleX(-1);
+  transition: transform 0.3s ease;
+  z-index: 5;
+}
+
+.top-left-snail:hover {
+  transform: scaleX(-1) scale(1.1);
+}
+
+
 /* Animal Showcase */
 .animal-showcase {
   display: flex;
@@ -427,7 +502,7 @@ body {
 }
 
 .showcase-animal {
-  width: 80px;
+  width: 120px;
   height: auto;
   opacity: 0.8;
   transition: transform 0.3s ease;
@@ -904,8 +979,21 @@ body {
     padding: 8px 16px;
   }
 
-  .showcase-animal {
+  .top-right-caterpillar {
     width: 60px;
+    top: -30px;
+    right: 15px;
+  }
+
+  .top-left-snail {
+    width: 60px;
+    top: -30px;
+    left: 15px;
+  }
+
+
+  .showcase-animal {
+    width: 90px;
   }
 
   .name-animal {
@@ -984,8 +1072,21 @@ body {
     margin-top: 40px;
   }
 
-  .showcase-animal {
+  .top-right-caterpillar {
     width: 50px;
+    top: -25px;
+    right: 10px;
+  }
+
+  .top-left-snail {
+    width: 50px;
+    top: -25px;
+    left: 10px;
+  }
+
+
+  .showcase-animal {
+    width: 75px;
   }
 
   .name-animal {

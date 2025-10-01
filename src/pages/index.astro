@@ -93,6 +93,22 @@ import "../styles/invitation.css";
 
 			<!-- Main Content -->
 			<div class="content">
+				<!-- Top Right Caterpillar -->
+				<img
+					src="/caterpillar.webp"
+					alt="Caterpillar"
+					class="top-right-caterpillar animate-on-scroll"
+					style="animation-delay: 0.9s;"
+				/>
+
+				<!-- Top Left Snail -->
+				<img
+					src="/snail.webp"
+					alt="Snail"
+					class="top-left-snail animate-on-scroll-flipped"
+					style="animation-delay: 1.0s;"
+				/>
+
 				<!-- Bunting Header -->
 				<div class="bunting-header animate-on-scroll">
 					<img
@@ -176,12 +192,12 @@ import "../styles/invitation.css";
 						class="animal-showcase animate-on-scroll"
 						style="animation-delay: 0.9s;"
 					>
+						<img src="/lion_cub.webp" alt="Lion Cub" class="showcase-animal" />
 						<img
-							src="/caterpillar.webp"
-							alt="Caterpillar"
+							src="/lion_full.webp"
+							alt="Lion Full"
 							class="showcase-animal"
 						/>
-						<img src="/snail.webp" alt="Snail" class="showcase-animal" />
 					</div>
 
 					<div
@@ -383,14 +399,16 @@ import "../styles/invitation.css";
 		<script>
 			// Scroll-triggered animations
 			function animateOnScroll() {
-				const elements = document.querySelectorAll(".animate-on-scroll");
+				const elements = document.querySelectorAll(
+					".animate-on-scroll, .animate-on-scroll-flipped",
+				);
 
 				elements.forEach((element) => {
 					const elementTop = element.getBoundingClientRect().top;
 					const elementVisible = 150;
 
 					if (elementTop < window.innerHeight - elementVisible) {
-						element.style.animationPlayState = "running";
+						(element as HTMLElement).style.animationPlayState = "running";
 					}
 				});
 			}
